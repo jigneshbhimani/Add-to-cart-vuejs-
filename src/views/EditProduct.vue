@@ -69,7 +69,7 @@
         </div>
       </div>
     </form>
-    <button class="btn btn-primary" @click="updateProduct">UPDATE</button>
+    <button class="btn btn-primary" @click="updateProduct(productDetailData)">UPDATE</button>
   </div>
 </template>
 
