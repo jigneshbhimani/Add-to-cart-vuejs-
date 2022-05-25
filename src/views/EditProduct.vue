@@ -5,6 +5,8 @@
         <h3 class="navbar-brand">Vue.js</h3>
       </nav>
     </div>
+    <br />
+    <br />
     <h3 style="color: red; font-weight: 900">UPDATE PRODUCT</h3>
     <br />
     <form>
@@ -69,7 +71,9 @@
         </div>
       </div>
     </form>
-    <button class="btn btn-primary" @click="updateProduct(productDetailData)">UPDATE</button>
+    <button class="btn btn-primary" @click="updateProduct(productDetailData)">
+      UPDATE
+    </button>
   </div>
 </template>
 
