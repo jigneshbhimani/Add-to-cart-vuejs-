@@ -1,0 +1,23 @@
+import { product } from "./getters";
+import state from "./state";
+
+export function SET_PRODUCTS(state, val) {
+  state.products = val; // Assign product list to state products
+}
+
+export function SET_PRODUCT(state, val) {
+  state.product = val; // Assign an object with specific product to the product state
+}
+
+export function SET_LOAD(state, val) {
+  state.uploadingData = val; // Assign an uploadingData state
+}
+
+export function SET_CART(state, val) {
+  state.cart = val; // Assign a list of added products in the cart to cart state
+}
+
+// export function UPDATE_PRODUCT(state, id, product) {
+//   const record = state.products.find((element) => element.id === id);
+//   state.products[record] = product;
+// }
