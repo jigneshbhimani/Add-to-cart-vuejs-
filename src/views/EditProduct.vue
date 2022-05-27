@@ -13,21 +13,13 @@
       <div class="form-group row">
         <label class="col-sm col-form-label"><b>Title</b></label>
         <div class="col-sm-10">
-          <input
-            type="text"
-            class="form-control"
-            v-model="productDetailData.title"
-          />
+          <input type="text" class="form-control" v-model="product.title" />
         </div>
       </div>
       <div class="form-group row">
         <label class="col-sm col-form-label"><b>Price</b></label>
         <div class="col-sm-10">
-          <input
-            type="text"
-            class="form-control"
-            v-model="productDetailData.price"
-          />
+          <input type="text" class="form-control" v-model="product.price" />
         </div>
       </div>
       <div class="form-group row">
@@ -36,28 +28,20 @@
           <input
             type="text"
             class="form-control"
-            v-model="productDetailData.description"
+            v-model="product.description"
           />
         </div>
       </div>
       <div class="form-group row">
         <label class="col-sm col-form-label"><b>Color</b></label>
         <div class="col-sm-10">
-          <input
-            type="text"
-            class="form-control"
-            v-model="productDetailData.color"
-          />
+          <input type="text" class="form-control" v-model="product.color" />
         </div>
       </div>
       <div class="form-group row">
         <label class="col-sm col-form-label"><b>Size</b></label>
         <div class="col-sm-10">
-          <input
-            type="text"
-            class="form-control"
-            v-model="productDetailData.size"
-          />
+          <input type="text" class="form-control" v-model="product.size" />
         </div>
       </div>
       <div class="form-group row">
@@ -66,12 +50,12 @@
           <input
             type="text"
             class="form-control input-sm"
-            v-model="productDetailData.company"
+            v-model="product.company"
           />
         </div>
       </div>
     </form>
-    <button class="btn btn-primary" @click="updateProduct(productDetailData)">
+    <button class="btn btn-primary" @click.prevent="changeProduct">
       UPDATE
     </button>
   </div>
@@ -81,34 +65,36 @@
 import axios from "axios";
 export default {
   name: "EditProduct",
-  props: { updateProducts: Object },
+  // props: { updateProducts: Object },
   data() {
     return {
-      productDetailData: {},
+      product: {},
     };
   },
   mounted() {
-    this.productDetailData = this.updateProducts;
+    // this.productDetailData = this.updateProducts;
   },
   methods: {
-    updateProduct(e) {
-      let data = {
-        title: e.title,
-        price: e.price,
-        description: e.description,
-        color: e.color,
-        size: e.size,
-        company: e.company,
-      };
+    getProductById(id) {
       axios
-        .put(`http://localhost:3000/products/${id}`, data)
+        .get(`http://localhost:3000/products/${id}`)
         .then((response) => {
-          console.log("response", response);
-          this.$router.push("/app");
+          this.product = response.data;
         })
         .catch((error) => {
           console.log(error);
         });
+    },
+    changeProduct() {
+      this.$store.dispatch(
+        "updateProduct",
+        this.$route.params.id,
+        this.product
+      );
+      console.log(this.product);
+    },
+    created() {
+      this.getProductById(this.$route.params.id);
     },
   },
 };

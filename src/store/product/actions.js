@@ -42,3 +42,10 @@ export function removeCart({ commit, getters }, id) {
   }
   commit("SET_CART", cart);
 }
+
+export function updateProduct({commit}, id, product) {
+  "http://localhost:3000/products"(id, product).then(response => {
+    commit("UPDATE_PRODUCT", id, response);
+    router.push("/app");
+  })
+}

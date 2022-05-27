@@ -1,6 +1,3 @@
-import { product } from "./getters";
-import state from "./state";
-
 export function SET_PRODUCTS(state, val) {
   state.products = val; // Assign product list to state products
 }
@@ -17,7 +14,7 @@ export function SET_CART(state, val) {
   state.cart = val; // Assign a list of added products in the cart to cart state
 }
 
-// export function UPDATE_PRODUCT(state, id, product) {
-//   const record = state.products.find((element) => element.id === id);
-//   state.products[record] = product;
-// }
+export function UPDATE_PRODUCT(state, id, product) {
+  const index = state.products.find((element) => element.id === id);
+  state.products[index] = product;
+}

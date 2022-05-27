@@ -15,7 +15,7 @@
             <router-link
               class="btn btn-primary"
               :to="{ name: 'edit-product', params: { id: product.id } }"
-              :updateProducts="product"
+              :product="product"
               >Edit</router-link
             >
           </div>
