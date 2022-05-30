@@ -12,8 +12,8 @@
 
 <script>
 import { mapActions, mapGetters } from "vuex";
-
 import ProductPage from "../components/ProductPage";
+
 export default {
   computed: {
     ...mapGetters("product", ["products"]),

@@ -14,7 +14,7 @@ export function SET_CART(state, val) {
   state.cart = val; // Assign a list of added products in the cart to cart state
 }
 
-export function UPDATE_PRODUCT(state, id, product) {
-  const index = state.products.find((element) => element.id === id);
-  state.products[index] = product;
-}
+// export function UPDATE_PRODUCT(state, id, product) {
+//   const index = state.products.find((element) => element.id === id);
+//   state.products[index] = product;
+// }

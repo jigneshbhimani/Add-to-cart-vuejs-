@@ -55,7 +55,9 @@
         </div>
       </div>
     </form>
-    <button class="btn btn-primary" @click="changeProduct">UPDATE</button>
+    <button class="btn btn-primary" @click="changeProduct(product)">
+      UPDATE
+    </button>
   </div>
 </template>
 
@@ -83,14 +85,25 @@ export default {
           console.log(error);
         });
     },
-    changeProduct(e) {
-      this.$store.dispatch(
-          "updateProduct",
-          this.$route.params.id,
-          (product = this.product)
-        );
-        console.log(product);
-        router.push("/app");
+    changeProduct() {
+      // this.$store.dispatch(
+      //   "UPDATE_PRODUCT",
+      this.$route.params.id, this.product;
+      // );
+      console.log(this.$route.params.id, "ID");
+      console.log(this.product, "DATA");
+      axios
+        .put(
+          `http://localhost:3000/products/${this.$route.params.id}`,
+          this.product
+        )
+        .then((response) => {
+          console.log(response);
+          router.push("/details/" + this.$route.params.id);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     },
   },
 };

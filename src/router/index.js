@@ -34,7 +34,7 @@ const routes = [
         path: "/app/edit/:idProduct",
         component: () => import("../views/EditProduct.vue"),
         name: "edit-product",
-        params: true
+        params: true,
       },
     ],
   },
