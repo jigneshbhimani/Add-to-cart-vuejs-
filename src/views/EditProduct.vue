@@ -84,25 +84,13 @@ export default {
         });
     },
     changeProduct(e) {
-      try {
-        let input = {
-          title: e.title,
-          price: e.price,
-          description: e.description,
-          color: e.color,
-          size: e.size,
-          company: e.company,
-        };
-        const data = this.$store.dispatch(
+      this.$store.dispatch(
           "updateProduct",
           this.$route.params.id,
-          (input = this.product)
+          (product = this.product)
         );
-        console.log(input);
+        console.log(product);
         router.push("/app");
-      } catch (error) {
-        console.log(error);
-      }
     },
   },
 };
