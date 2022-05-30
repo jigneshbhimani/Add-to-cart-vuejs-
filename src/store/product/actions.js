@@ -43,20 +43,3 @@ export function removeCart({ commit, getters }, id) {
   }
   commit("SET_CART", cart);
 }
-
-// export function updateProduct({ commit }, { id, product }) {
-//   console.log(id, "id");
-//   console.log(product, "product");
-//   axios
-//     .put(
-//       `http://localhost:3000/products/${this.$route.params.id}`,
-//       this.product
-//     )
-//     .then((response) => {
-//       console.log(response);
-//       router.push("/details/" + this.$route.params.id);
-//     })
-//     .catch((error) => {
-//       console.log(error);
-//     });
-// }
