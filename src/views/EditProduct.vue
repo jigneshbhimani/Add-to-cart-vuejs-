@@ -55,24 +55,22 @@
         </div>
       </div>
     </form>
-    <button class="btn btn-primary" @click.prevent="changeProduct">
-      UPDATE
-    </button>
+    <button class="btn btn-primary" @click="changeProduct">UPDATE</button>
   </div>
 </template>
 
 <script>
 import axios from "axios";
+import router from "@/router";
 export default {
   name: "EditProduct",
-  // props: { updateProducts: Object },
   data() {
     return {
       product: {},
     };
   },
   mounted() {
-    // this.productDetailData = this.updateProducts;
+    this.getProductById(this.$route.params.id);
   },
   methods: {
     getProductById(id) {
@@ -85,16 +83,26 @@ export default {
           console.log(error);
         });
     },
-    changeProduct() {
-      this.$store.dispatch(
-        "updateProduct",
-        this.$route.params.id,
-        this.product
-      );
-      console.log(this.product);
-    },
-    created() {
-      this.getProductById(this.$route.params.id);
+    changeProduct(e) {
+      try {
+        let input = {
+          title: e.title,
+          price: e.price,
+          description: e.description,
+          color: e.color,
+          size: e.size,
+          company: e.company,
+        };
+        const data = this.$store.dispatch(
+          "updateProduct",
+          this.$route.params.id,
+          (input = this.product)
+        );
+        console.log(input);
+        router.push("/app");
+      } catch (error) {
+        console.log(error);
+      }
     },
   },
 };
