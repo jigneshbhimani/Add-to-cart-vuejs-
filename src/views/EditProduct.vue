@@ -86,12 +86,7 @@ export default {
         });
     },
     changeProduct() {
-      // this.$store.dispatch(
-      //   "UPDATE_PRODUCT",
       this.$route.params.id, this.product;
-      // );
-      console.log(this.$route.params.id, "ID");
-      console.log(this.product, "DATA");
       axios
         .put(
           `http://localhost:3000/products/${this.$route.params.id}`,
