@@ -3,7 +3,10 @@
     <div>
       <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <h3 class="navbar-brand" to="/">Vue.js</h3>
-        <router-link class="btn btn-primary" to="/addProduct">Add Product</router-link>
+        <router-link class="btn btn-primary" to="/addProduct"
+          >Add Product</router-link
+        >
+        <button class="btn btn-primary ml-4" @click="logout">Logout</button>
         <div class="ml-auto">
           <router-link class="btn btn-primary my-2 my-sm-0" to="/cart">
             <img
@@ -29,6 +32,11 @@ export default {
   name: "Nav",
   computed: {
     ...mapGetters("product", ["cart"]),
+  },
+  methods: {
+    logout() {
+      this.$router.push("/login");
+    },
   },
 };
 </script>
