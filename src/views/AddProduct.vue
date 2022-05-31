@@ -53,7 +53,7 @@
       <!-- <div class="form-group row">
         <label class="col-sm col-form-label"><b>Image</b></label>
         <div class="col-sm-10">
-          <input type="file" accept="image/*" :src="product.imageURL" v-on:change="product.imageURL"/>
+          <input type="file" accept="image/*" :src="product.imageURL" v-on:change="product.imageURL" @change="uploadImage"/>
         </div>  
       </div> -->
     </form>
