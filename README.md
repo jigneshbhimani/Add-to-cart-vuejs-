@@ -1,7 +1,8 @@
 # Vuejs-Project
 
 ```
+Product List
+Product Details
 Add product using Vuex
 Update Product
-Add to cart product using Vuex
 ```
