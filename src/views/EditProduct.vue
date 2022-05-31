@@ -55,7 +55,7 @@
         </div>
       </div>
     </form>
-    <button class="btn btn-primary" @click="changeProduct(product)">
+    <button class="btn btn-primary" @click="changeProduct">
       UPDATE
     </button>
   </div>

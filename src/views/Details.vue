@@ -20,12 +20,12 @@
             >
           </div>
         </div>
-        <p class="lead">{{ product.description }}</p>
-        <p class="lead">{{ product.company }}</p>
-        <p class="lead">{{ product.color }}</p>
-        <p class="lead">{{ product.size }}</p>
+        <p class="lead">Description: {{ product.description }}</p>
+        <p class="lead">Company: {{ product.company }}</p>
+        <p class="lead">Color: {{ product.color }}</p>
+        <p class="lead">Size: {{ product.size }}</p>
         <div>
-          <p class="lead">${{ product.price }}</p>
+          <p class="lead">Price: ${{ product.price }}</p>
         </div>
         <AddToCart :product="product" />
       </div>
